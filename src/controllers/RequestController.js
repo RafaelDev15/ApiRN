@@ -33,11 +33,10 @@ class RequestController{
 
     async store(req, res){
 
-        const {title, type, description, date, status} = req.body;
-        const {user_id} = req.headers;
+        const {title, type, description, date, status, user} = req.body;
 
         const request = await Requests.create({
-            user: user_id,
+            user,
             title,
             type,
             description,
